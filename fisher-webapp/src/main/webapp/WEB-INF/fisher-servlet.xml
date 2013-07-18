@@ -1,4 +1,3 @@
-exam-servlet.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Bean头部 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -19,7 +18,7 @@ exam-servlet.xml
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
-            <value>/WEB-INF/jsp/</value>
+            <value>jsp/</value>
         </property>
         <property name="suffix">
             <value>.jsp</value>
