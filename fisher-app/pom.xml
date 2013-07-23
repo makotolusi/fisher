@@ -89,9 +89,6 @@
 		</dependency>
 
 	</dependencies>
-	<packaging>pom</packaging>
-	<modules>
-		<module>fisher-app</module>
-		<module>fisher-webapp</module>
-	</modules>
+	<packaging>jar</packaging>
+
 </project>

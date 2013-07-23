@@ -17,20 +17,10 @@ public class HelloMongo {
 
 	public void run() {
 
-		if (mongoOperations.collectionExists(Person.class)) {
-			mongoOperations.dropCollection(Person.class);
+		if (!mongoOperations.collectionExists(Person.class)) {
+			mongoOperations.createCollection(Person.class);
 		}
 
-		mongoOperations.createCollection(Person.class);
-
-		Person p = new Person("John", 39);
-		Account a = new Account("1234-59873-893-1", Account.Type.SAVINGS, 123.45D);
-		p.getAccounts().add(a);
-
-		mongoOperations.insert(p);
-
-		List<Person> results = mongoOperations.findAll(Person.class);
-		System.out.println("Results: " + results);
 	}
 
 }
