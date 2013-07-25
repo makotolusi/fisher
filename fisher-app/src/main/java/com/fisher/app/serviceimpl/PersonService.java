@@ -10,43 +10,42 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import com.fisher.app.domain.Account;
 import com.fisher.app.domain.Person;
 import com.fisher.app.service.PersonServiceI;
-import com.fisher.app.util.StateEnum;
+import com.fisher.app.util.Utils;
 
 @Service
 public class PersonService implements PersonServiceI {
 
 	@Autowired
 	private MongoOperations mongoTemplate;
+	
 
-	public Map<String, String> login(Person person) {
-		Map<String, String> result = new HashMap<String, String>();
+	public Map<String, Object> login(Person person) {
+		Map<String, Object> result = new HashMap<String, Object>();
 		if (isExist(person)) {
-			result.put(StateEnum.SUC.name(), StateEnum.SUC.getMsg());
-			return result;
+			return Utils.resultSUC(result);
 		} else {
-			result.put(StateEnum.FAL.name(), StateEnum.FAL.getMsg());
-			return result;
+			return Utils.resultFAL(result);
 		}
 	}
+
+	
 
 	public List<Person> queryAll() {
 
 		return mongoTemplate.findAll(Person.class);
 	}
 
-	public Map<String, String> register(Person person) {
-		Map<String, String> result = new HashMap<String, String>();
+	public Map<String, Object> register(Person person) {
+		Map<String, Object> result = new HashMap<String, Object>();
 
 		if (isExist(person)) {
-			result.put(StateEnum.EXIST.name(), StateEnum.EXIST.getMsg());
-			return result;
+			
+			return Utils.resultExist(result);
 		} else {
 			mongoTemplate.insert(person);
-			result.put(StateEnum.SUC.name(), StateEnum.SUC.getMsg());
-			return result;
+			return Utils.resultSUC(result);
 		}
 	}
 
@@ -61,8 +60,5 @@ public class PersonService implements PersonServiceI {
 			return true;
 	}
 	
-	public static void main(String[] args) {
-		
-		System.out.println(StateEnum.FAL.getMsg());
-	}
+
 }

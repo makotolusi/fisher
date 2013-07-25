@@ -20,7 +20,7 @@ public class App
 
         HelloMongo hello = context.getBean(HelloMongo.class);
         hello.run();
-        
+        hello.runInitData();
         System.out.println( "DONE!" );
 	}
 }
