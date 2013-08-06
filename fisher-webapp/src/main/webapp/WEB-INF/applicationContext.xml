@@ -17,12 +17,18 @@
 
 	<!-- Default bean name is 'mongo' -->
 	<mongo:mongo host="localhost" port="27017" />
+	
+	
+	<mongo:db-factory dbname="fisherdb" mongo-ref="mongo" />
 
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-		<constructor-arg ref="mongo" />
-		<constructor-arg name="databaseName" value="fisherdb" />
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+
 	</bean>
 
+	<mongo:mapping-converter base-package="com.fisher.app.domain" />
+
+	<mongo:repositories base-package="com.fisher.app.repository" />
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">

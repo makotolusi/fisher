@@ -1,21 +1,30 @@
-package com.fisher.app.mongo.config;
+package com.fisher.app.serviceimpl;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.fisher.app.domain.Broad;
 import com.fisher.app.domain.Person;
 import com.fisher.app.domain.Post;
+import com.fisher.app.repository.BroadRepositoryI;
+import com.fisher.app.service.BroadServiceI;
+import com.fisher.app.service.InitServiceI;
+import com.fisher.app.util.Utils;
 
-@Repository
-public class HelloMongo {
+@Service
+public class InitService implements InitServiceI{
 
 	@Autowired
-	MongoOperations mongoOperations;
-
+	private MongoOperations mongoOperations;
 	public void run() {
 
 		if (!mongoOperations.collectionExists(Person.class)) {
@@ -28,6 +37,7 @@ public class HelloMongo {
 		if (!mongoOperations.collectionExists(Post.class)) {
 			mongoOperations.createCollection(Post.class);
 		}
+		this.runInitData();
 		
 	}
 	

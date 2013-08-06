@@ -7,6 +7,7 @@ public class Utils {
 	public static final String CODE="code";
 	public static final String MSG="msg";
 	public static final String RESULT="result";
+	public static final String IMG="img";
 	
 	public static Map<String, Object> resultSUC(Map<String, Object> result) {
 		result.put(CODE, StateEnum.SUC.name());

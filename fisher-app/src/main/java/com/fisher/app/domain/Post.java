@@ -3,9 +3,11 @@ package com.fisher.app.domain;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Post {
+
 
 	@Id
 	private String id;
@@ -13,7 +15,46 @@ public class Post {
 	private Date createDate;
 	private int replayNum;
 	private String content;
+	private String imgId;
 	
+	@DBRef
+	private Broad broad;
+
+	@DBRef
+	private Person person;
+
+	
+	public Person getPerson() {
+		return person;
+	}
+	public Person createAuthor(String id){
+		Person p= new Person();
+		p.setId(id);
+		person=p;
+		return p;
+	}
+	public void createBroad(String id){
+		Broad b=new Broad();
+		b.setId(id);
+		broad=b;
+	}
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+	
+	
+	public String getImgId() {
+		return imgId;
+	}
+	public void setImgId(String imgId) {
+		this.imgId = imgId;
+	}
+	public Broad getBroad() {
+		return broad;
+	}
+	public void setBroad(Broad broad) {
+		this.broad = broad;
+	}
 	public String getId() {
 		return id;
 	}
