@@ -1,0 +1,31 @@
+{
+    "title": "Ext.chart.series.Radar Example",
+    "product": "touch",
+    "version": "2.1.0",
+    "path": "touch/2.1.0/docs/Ext.chart.series.Radar.1/",
+    "categories": [
+        {
+            "label": "Sencha Touch"
+        },
+        {
+            "label": "Sencha Touch 2.1.0"
+        }
+    ],
+    "seeAlso": [
+        {
+            "label": "Ext.chart.series.Radar Documentation",
+            "url": "http://docs.sencha.com/touch/2-1/#!/api/Ext.chart.series.Radar",
+            "type": "api"
+        }
+    ],
+    "author": {
+        "name": "Sencha Inc.",
+        "github": "extjs",
+        "url": "http://www.sencha.com/",
+        "senchadevs": ""
+    },
+    "files": [
+        "app.js",
+        "index.html"
+    ]
+}

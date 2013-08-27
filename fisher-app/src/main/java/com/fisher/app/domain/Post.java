@@ -1,6 +1,7 @@
 package com.fisher.app.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -15,7 +16,7 @@ public class Post {
 	private Date createDate;
 	private int replayNum;
 	private String content;
-	private String imgId;
+	private List<String> imgId;
 	
 	@DBRef
 	private Broad broad;
@@ -42,11 +43,12 @@ public class Post {
 		this.person = person;
 	}
 	
+
 	
-	public String getImgId() {
+	public List<String> getImgId() {
 		return imgId;
 	}
-	public void setImgId(String imgId) {
+	public void setImgId(List<String> imgId) {
 		this.imgId = imgId;
 	}
 	public Broad getBroad() {

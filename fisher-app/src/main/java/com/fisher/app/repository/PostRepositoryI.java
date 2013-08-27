@@ -1,5 +1,7 @@
 package com.fisher.app.repository;
 
+import java.util.List;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,7 +14,7 @@ import com.fisher.app.domain.Post;
 @Repository
 public interface PostRepositoryI extends MongoRepository<Post,ObjectId>  {
 
-	public Page<Post> findById	(String id,Pageable page) ;
+	public Post findById	(String id) ;
 	
 	public Page<Post> findByBroad	(Broad broad,Pageable page) ;
 }
