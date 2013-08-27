@@ -23,7 +23,7 @@ public class PersonController {
 
 	@ResponseBody
 	@RequestMapping(value = "/login/{eml}/{psw}")
-	public Map<String, Object> login(@PathVariable String eml,@PathVariable String psw, ModelMap model) {
+	public Map<String, String> login(@PathVariable String eml,@PathVariable String psw, ModelMap model) {
 		Person p = new Person();
 		p.setEmail(eml);
 		String password = Password.createPassword(psw);
@@ -32,16 +32,11 @@ public class PersonController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/register/{eml}/{nickName}/{psw}")
-	public Map<String, Object> register(
-			@PathVariable String eml,
-			@PathVariable String nickName, 
-			@PathVariable String psw, 
-			ModelMap model) {
+	@RequestMapping(value = "/register")
+	public Map<String, String> register(ModelMap model) {
 		Person p = new Person();
-		p.setEmail(eml);
-		p.setNickName(nickName);
-		String password = Password.createPassword(psw);
+		p.setEmail("lusi@sina.com");
+		String password = Password.createPassword("123");
 		p.setPassword(password);
 		return personServiceI.register(p);
 	}

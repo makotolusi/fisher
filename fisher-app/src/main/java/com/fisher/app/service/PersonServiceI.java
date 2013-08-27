@@ -7,8 +7,8 @@ import com.fisher.app.domain.Person;
 
 public interface PersonServiceI {
 
-	public Map<String, Object> login(Person person);
+	public Map<String, String> login(Person person);
 
-	public Map<String, Object> register(Person person);
+	public Map<String, String> register(Person person);
 	public List<Person> queryAll();
 }

@@ -13,7 +13,7 @@ public class Person {
 	private String id;
 
 	private String name;
-	private String nickName;
+
 	private String email;
 	private String password;
 	
@@ -29,16 +29,6 @@ public class Person {
 		super();
 		this.name = name;
 		this.age = age;
-	}
-
-	
-	
-	public String getNickName() {
-		return nickName;
-	}
-
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
 	}
 
 	public String getId() {
