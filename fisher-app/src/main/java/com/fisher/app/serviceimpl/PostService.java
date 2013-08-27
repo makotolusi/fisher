@@ -15,13 +15,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Service;
 
-import com.fisher.app.dao.CommonDaoI;
 import com.fisher.app.domain.Broad;
 import com.fisher.app.domain.Post;
 import com.fisher.app.repository.PostRepositoryI;
 import com.fisher.app.service.PostServiceI;
 import com.fisher.app.util.Utils;
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSDBFile;
@@ -35,9 +33,9 @@ public class PostService implements PostServiceI {
 
 	@Autowired
 	private PostRepositoryI postRepositoryI;
-
-	@Autowired
-	private CommonDaoI commonDaoI;
+//
+//	@Autowired
+//	private CommonDaoI commonDaoI;
 
 	public Map<String, Object> writeByBroadId(Post post, String id) {
 		Map<String, Object> result = new HashMap<String, Object>();
